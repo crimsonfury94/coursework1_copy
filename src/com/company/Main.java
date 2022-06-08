@@ -7,6 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
         EmployeeBook employeeBook = new EmployeeBook();
-        employeeBook.getEmployee(5);
+        employeeBook.removeEmployee(10);
+        employeeBook.addEmployee(10, new Employee("Мышь Олег", 5, 15000));
+        employeeBook.getEmployee(10);
     }
 }

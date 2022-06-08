@@ -70,26 +70,23 @@ public class EmployeeBook {
 
 
 
-    public Employee addEmployee(String workerName, int department, double workersSalary) {
-        Employee employee = new Employee(workerName, department, workersSalary);
-        if (employees.containsKey(employee.getId())) {
-            employees.put(employee.getId(), employee);
+    public void addEmployee(Integer id, Employee employee) {
+        Employee employeer = employees.get(id);
+        if (employees.containsKey(employeer.getId())) {
+            employees.put(employee.getId(), employeer);
         }
-        return employee;
     }
 
-    public void removeEmployee(Employee employee) {
+    public void removeEmployee(Integer id) {
+        Employee employee = employees.get(id);
         if(employees.containsKey(employee.getId()))
         employees.remove(employee.getId(), employee);
     }
 
-    public Employee getEmployee(Integer id) {
+    public void getEmployee(Integer id) {
         Employee employee = employees.get(id);
-        if (employees.containsKey(employee.getId())) {
-
-        }
-        return  employees.get(employee.getId());
-
+        employees.get(employee.getId());
+        System.out.println(employee);
     }
 
 
@@ -101,8 +98,8 @@ public class EmployeeBook {
         return sum;
     }
 
-    public String totalSum(Employee employees) {
-        return  "Общие затраты на зарплату в месяц составляют " + salarySum(employees) + " рублей.";
+    public String totalSum(Employee employee) {
+        return  "Общие затраты на зарплату в месяц составляют " + salarySum(employee) + " рублей.";
     }
 
     public void maxSalary(Employee[] employees) {

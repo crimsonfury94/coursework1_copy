@@ -5,12 +5,77 @@ import java.util.Map;
 
 public class EmployeeBook {
 
-    private static final Map<Integer, Employee> employees = new HashMap<>();
+    private final Map<Integer, Employee> employees = new HashMap<>(Map.of(
+            1,
+            new Employee(
+                    "Бусина Валентина Юрьевна",
+                    3,
+                    25000
+            ),
+            2,
+            new Employee(
+                    "Семенов Степан Олегович",
+                    2,
+                    27000
+            ),
+            3,
+            new Employee(
+                    "Дарницкий Петр Семенович",
+                    3,
+                    29000
+            ),
+            4,
+            new Employee(
+                    "Петров Александр Валентинович",
+                    4,
+                    22000
+            ),
+            5,
+            new Employee(
+                    "Евстегнеев Станислав Петрович",
+                    5,
+                    21000
+            ),
+            6,
+            new Employee(
+                    "Шляпин Егор Владимирович",
+                    4,
+                    23000
+            ),
+            7,
+            new Employee(
+                    "Сырков Велерий Федорович",
+                    3,
+                    24000
+            ),
+            8,
+            new Employee(
+                    "Шарикова Елена Павловна",
+                    2,
+                    28000
+            ),
+            9,
+            new Employee(
+                    "Кысь Юлия Петровна",
+                    1,
+                    30000
+            ),
+            10,
+            new Employee(
+                    "Кошкина Валерия Дмитриевна",
+                    5,
+                    45000
+            )
+    ));
 
 
-    public void addEmployee(Employee employee) {
-        if(employees.containsKey(employee.getId()))
-        employees.put(employee.getId(), employee);
+
+    public Employee addEmployee(String workerName, int department, double workersSalary) {
+        Employee employee = new Employee(workerName, department, workersSalary);
+        if (employees.containsKey(employee.getId())) {
+            employees.put(employee.getId(), employee);
+        }
+        return employee;
     }
 
     public void removeEmployee(Employee employee) {
@@ -18,9 +83,13 @@ public class EmployeeBook {
         employees.remove(employee.getId(), employee);
     }
 
-    public String getEmployee(Integer id) {
-        final Employee employee = employees.get(id);
-        return employee.toString();
+    public Employee getEmployee(Integer id) {
+        Employee employee = employees.get(id);
+        if (employees.containsKey(employee.getId())) {
+
+        }
+        return  employees.get(employee.getId());
+
     }
 
 

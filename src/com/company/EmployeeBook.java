@@ -7,11 +7,9 @@ public class EmployeeBook {
 
     private static final Map<Integer, Employee> employees = new HashMap<>();
 
-    public <V, K> EmployeeBook(Object o) {
-
-    }
 
     public void addEmployee(Employee employee) {
+        if(employees.containsKey(employee.getId()))
         employees.put(employee.getId(), employee);
     }
 
@@ -28,8 +26,9 @@ public class EmployeeBook {
 
     public double salarySum(Employee employee) {
         double sum = 0;
-        employees.get(employee.getId());
+        if (employees.containsKey(employee.getId())) {
             sum += employee.getWorkersSalary();
+        }
         return sum;
     }
 
